@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>All Visitors - VMS</title>
+{% endblock %}
+
+{% block body %}
+<section>
+  <div class="container-fluid admin-profile-section d-flex justify-content-between" style="background-color: #e2dbdb;">
+   <div class="d-flex align-items-center">
+    <span class="visitors-table-class">Visitors-List</span>
+  </div>
+  <div class="">
+   <a href="/add-new-visitor/" class="nav-link"><button class="visitor-btn">Add New Visitor</button></a>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <tbody>
+      <tr class="trclass">
+        <th>SNo.</th>
+        <th>Name</th>
+        <th>Mobile No.</th>
+        <th>Email</th>
+        <th>Purpose</th>
+        <th>To Meet</th>
+        <th>Date Of Visit</th>      
+        <th>Action</th>      
+      </tr>
+      {% for v in visitors %}
+      <tr> 
+        <td class="align-middle">{{forloop.counter}}</td>
+        <td class="align-middle">{{v.name}}</td>
+        <td class="align-middle">{{v.phone}}</td>
+        <td class="align-middle">{{v.email}}</td>
+        <td class="align-middle">{{v.purpose}}</td>
+        <td class="align-middle">{{v.to_meet}}</td>
+        <td class="align-middle">{{v.date_of_visit}}</td>
+        <td class="align-middle"><a href="/update-visitor/{{v.id}}/" class="edit btn">Edit</a> <a href="/delete-visitor/{{v.id}}" class="Delete btn">Delete</button></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+{% endblock %}
+

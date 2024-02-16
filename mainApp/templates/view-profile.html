@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>View Profile - VMS</title>
+{% endblock %}
+
+{% block body %}
+<section>
+  <div class="container-fluid admin-profile-section p-4 pb-4" style="background-color: #f0e5e5;">
+
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card image-cards ">
+          <div class="card-body text-center">
+            <img src="/static/images/Layer-6.png" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 170px;">
+            <h5 class="my-2">Admin</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 p-2 col-md-12">
+        <div class="">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <td class="">{{recep.name}}</td>
+              </tr>  
+
+              <tr>
+                <th>Emaill</th>
+                <td class="">{{recep.email}}</td>
+              </tr>  
+              <tr>
+                <th style="text-wrap: nowrap;">Mobile No.</th>
+                <td class="">{{recep.phone}}</td>
+              </tr>  
+              <tr>
+                <th>Address</th>
+                <td class="">{{recep.address}}</td>
+              </tr>  
+            </tbody>
+          </table>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section> 
+
+{% endblock %}

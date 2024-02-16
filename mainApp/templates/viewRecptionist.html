@@ -1,0 +1,44 @@
+{% extends 'index.html' %} 
+
+{% block title %}
+<title>View Receptionist - VMS</title>
+{% endblock %}
+
+{% block body %}
+<section class="container">
+  <div class=" admin-profile-section d-flex justify-content-between" style="background-color: #e2dbdb;">
+   <div class="d-flex align-items-center">
+    <span class="visitors-table-class">Receptionist</span>
+  </div>
+  <div class="">
+   <a href="/add-receptionist/"><button class="visitor-btn">Add Receptionist</button></a>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <tbody>
+      <tr class="trclass">
+        <th>Name</th>
+        <th>Phone No.</th>
+        <th>User Email</th>
+        <!-- <th>User Role</th>       -->
+        <th>Action</th>      
+      </tr>
+      {% for r in receps %}
+      <tr> 
+        <td class="align-middle">{{r.name}}</td>
+        <td class="align-middle">{{r.phone}}</td>
+        <td class="align-middle">{{r.email}}</td>
+        <!-- <td class="align-middle">Receptionist</td> -->
+        <td class="align-middle" colspan="2"><a href="/update-recep/{{r.id}}" class="edit btn">Edit</a> <a href="/delete-recep/{{r.id}}" class="Delete btn">Delete</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+  </div>
+</section>
+
+{% endblock %}
+

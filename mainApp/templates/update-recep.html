@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<style>
+  body {
+    margin: 0;
+    margin: 0;
+    padding: 0;
+    background: url("{% static 'images/bg3.jpg' %}") no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  button {
+    margin-left: 10px;
+  }
+
+  .btn-theme:hover {
+    color: white;
+  }
+</style>
+
+<body>
+
+  <div id="main-wrapper" class="container mx-auto col-lg-12 col-md-10 col-sm-10">
+    <div class="mt-4 mb-3 d-flex justify-content-start">
+      <h4 class="h3 font-weight-bold txt-theme mx-auto">Add New Visitor</h4>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="card ">
+          <div class="card-body p-0 m-1 py-5">
+            <div class="d-flex justify-content-center ">
+              <div class="col-lg-8">
+                <div class="p-3">
+                  <form action="/update-recep/{{recep.id}}" method="post">
+                    {% csrf_token %}
+                    {% if messages %}
+                      {% for m in messages %}
+                        {% if forloop.counter == 1 %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                          {{m}}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label class="">Receptionist Name</label>
+                        <input type="text" name="name" class="form-control receptionist-form-control" value="{{recep.name}}" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="">Phone No.</label>
+                        <input type="tel" name="phone" value="{{recep.phone}}" class="form-control receptionist-form-control" required>
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="col-md-12">
+                        <label class="">Email ID</label>
+                        <input type="email" name="email" value="{{recep.email}}" class="form-control receptionist-form-control" required>
+                      </div>
+                      <div class="form-group col-12">
+                        <label>Receptionist Address</label>
+                        <input type="text" name="address" value="{{recep.address}}" class="form-control receptionist-form-control" required>
+                      </div>
+
+                      <div class="form-group col-md-6">
+                        <label>Receptionist City</label>
+                        <input type="text" name="city" value="{{recep.city}}" class="form-control receptionist-form-control" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label>Receptionist State</label>
+                        <input type="text" name="state" value="{{recep.state}}" class="form-control receptionist-form-control" required>
+                      </div>
+
+                      <button type="submit" class="btn btn-theme">Submit</button>
+                      <button type="reset" class="btn btn-light border">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

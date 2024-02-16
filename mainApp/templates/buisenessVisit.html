@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Business Visitors - VMS</title>
+{% endblock %}
+
+{% block body %}
+<section>
+  <div class="container-fluid admin-profile-section d-flex justify-content-between" style="background-color: #e2dbdb;">
+   <div class="d-flex align-items-center">
+    <span class="visitors-table-class">Business Visit</span>
+  </div>
+  <div class="">
+   <a href="/add-new-visitor/" class="nav-link"><button class="visitor-btn">Add New Visitor</button></a>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <tbody>
+      <tr class="trclass">
+        <th>SNo.</th>
+        <th>Name</th>
+        <th>Mobile No.</th>
+        <th>Email</th>
+        <th>purpose</th>
+        <th>To Meet</th>
+        <th>Date Of Visit</th>      
+        <th>Action</th>      
+      </tr>
+      {% for b in busi_visits %}
+
+      <tr> 
+        <td class="align-middle">{{forloop.counter}}</td>
+        <td class="align-middle">{{b.name}}</td>
+        <td class="align-middle">{{b.phone}}</td>
+        <td class="align-middle">{{b.email}}</td>
+        <td class="align-middle">{{b.purpose}}</td>
+        <td class="align-middle">{{b.to_meet}}</td>
+        <td class="align-middle">{{b.date_of_visit}}</td>
+        <td class="align-middle" colspan="2"><button class="edit">Edit</button> <button class="Delete">Delete</button></td>
+      </tr>
+              
+      {% endfor %}
+      
+    </tbody>
+  </table>
+  </div>
+</section>
+{% endblock body %}
+
